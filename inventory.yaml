@@ -1,0 +1,11 @@
+---
+all:
+  children:
+    berries:
+      vars:
+        ansible_user: pi
+      hosts:
+        berrycube-two
+    cube:
+      hosts:
+        berrycube-two

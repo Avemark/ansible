@@ -1,0 +1,16 @@
+---
+- hosts: cube
+  roles: 
+    - rsyslog
+  tasks:
+    - name: Fix annoying ipv6 error
+      ansible.builtin.lineinfile:
+        line: net.ipv6.mld_qrv=1
+        path: /etc/sysctl.conf
+      become: yes
+      notify: set mld_qrv
+  handlers:
+    - name: set mld_qrv
+      ansible.builtin.command:
+        cmd: sysctl net.ipv6.mld_qrv=1
+      become: yes
