@@ -1,7 +1,9 @@
 ---
-- hosts: cube
+- hosts:
+    - all
   roles: 
     - rsyslog
+    - hostname
   tasks:
     - name: Fix annoying ipv6 error
       ansible.builtin.lineinfile:

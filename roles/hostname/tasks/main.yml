@@ -1,0 +1,5 @@
+- name: Set hostname
+  ansible.builtin.template:
+    src: ../templates/hostname
+    dest: /etc/hostname
+  become: true

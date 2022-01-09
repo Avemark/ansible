@@ -2,10 +2,12 @@
 all:
   children:
     berries:
-      vars:
-        ansible_user: pi
       hosts:
-        berrycube-two
-    cube:
+        berrycube-one:
+        berrycube-two:
+    master:
       hosts:
-        berrycube-two
+        berrycube-one:
+    clients:
+      hosts:
+        berrycube-two:
