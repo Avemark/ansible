@@ -1,13 +1,25 @@
 ---
 all:
+  vars:
+    k3s_version: v1.23.1+k3s1
+    master_ip: "{{ hostvars[groups['master'][0]]['ansible_host'] | default(groups['master'][0]) }}"
+    extra_server_args: ""
+    extra_agent_args: ""
   children:
     berries:
+      vars:
+        ansible_user: pi
+        systemd_dir: /etc/systemd/system
       hosts:
         berrycube-one:
         berrycube-two:
     master:
+      vars:
+        k8s_role: master
       hosts:
         berrycube-one:
     clients:
+      vars:
+        k8s_role: node
       hosts:
         berrycube-two:

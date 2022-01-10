@@ -1,5 +1,10 @@
 ---
 - hosts:
+    - berries
+  roles:
+    - raspbian
+
+- hosts:
     - all
   roles: 
     - rsyslog
@@ -16,3 +21,9 @@
       ansible.builtin.command:
         cmd: sysctl net.ipv6.mld_qrv=1
       become: yes
+
+- hosts:
+    - master
+  roles:
+    - k3s
+  become: true
