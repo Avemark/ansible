@@ -1,4 +1,4 @@
-### Ansibble stuff
+### Ansible stuff
 
 Ansible playbook for my local shenanigans.
 
