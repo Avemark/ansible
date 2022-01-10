@@ -1,4 +1,7 @@
 ---
 - include_tasks: download.yml
+- include_tasks: hosts.yml
 - include_tasks: master.yml
   when: k8s_role == "master"
+- include_tasks: node.yml
+  when: k8s_role == "node"

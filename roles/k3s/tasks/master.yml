@@ -8,7 +8,7 @@
     owner: root
     group: root
     mode: 0644
-  notify: Reload K3s service
+  notify: Reload K3s master service
 
 - name: Enable K3s service
   systemd:

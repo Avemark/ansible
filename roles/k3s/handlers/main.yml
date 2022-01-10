@@ -1,6 +1,12 @@
 ---
-- name: Reload K3s service
+- name: Reload K3s master service
   systemd:
     name: k3s
+    daemon_reload: yes
+    state: restarted
+
+- name: Reload K3s node service
+  systemd:
+    name: k3s-node
     daemon_reload: yes
     state: restarted

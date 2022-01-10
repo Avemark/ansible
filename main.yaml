@@ -23,7 +23,8 @@
       become: yes
 
 - hosts:
-    - master
+    - k3s
+  gather_facts: true
   roles:
     - k3s
   become: true
