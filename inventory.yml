@@ -5,14 +5,20 @@ all:
     master_ip: "{{ hostvars[groups['master'][0]]['ansible_host'] | default(groups['master'][0]) }}"
     extra_server_args: ""
     extra_agent_args: ""
+    systemd_dir: /etc/systemd/system
   children:
     berries:
       vars:
         ansible_user: pi
-        systemd_dir: /etc/systemd/system
       hosts:
         berrycube-one:
         berrycube-two:
+    jetson:
+      vars:
+        ansible_user: jet
+      hosts:
+        jetcube:
+
     k3s:
       children:
         master:
@@ -25,3 +31,4 @@ all:
             k8s_role: node
           hosts:
             berrycube-two:
+            jetcube:
